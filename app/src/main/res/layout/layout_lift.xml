@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:background="@drawable/bg_slidingmenu_left">
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/ll_news"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+        <ImageView
+            android:background="@drawable/biz_navigation_tab_news"
+            android:id="@+id/iv_news"
+            android:layout_width="55dp"
+            android:layout_height="55dp" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="新闻"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_title_size"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="NEWS"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_content_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/ll_local"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+        <ImageView
+            android:background="@drawable/biz_navigation_tab_local_news"
+            android:id="@+id/iv_local"
+            android:layout_width="55dp"
+            android:layout_height="55dp" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="本地"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_title_size"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="LOCAL"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_content_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/ll_read"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+        <ImageView
+            android:background="@drawable/biz_navigation_tab_read"
+            android:id="@+id/iv_read"
+            android:layout_width="55dp"
+            android:layout_height="55dp" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="收藏"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_title_size"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="FAVDRITE"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_content_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/ll_ties"
+        android:layout_weight="1"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="40dp">
+    <ImageView
+        android:background="@drawable/biz_navigation_tab_ties"
+        android:id="@+id/iv_ties"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="跟帖"
+            android:textColor="@color/white"
+            android:textSize="@dimen/menu_text_title_size"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="COMMENT"
+            android:textColor="@color/white"
+            android:textSize="@dimen/menu_text_content_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/ll_pics"
+        android:layout_weight="1"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="40dp">
+    <ImageView
+        android:background="@drawable/biz_navigation_tab_pics"
+        android:id="@+id/iv_pics"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="图片"
+            android:textColor="@color/white"
+            android:textSize="@dimen/menu_text_title_size"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="PHOTO"
+            android:textColor="@color/white"
+            android:textSize="@dimen/menu_text_content_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

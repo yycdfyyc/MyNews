@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yuyunchao.asus.mynews.fragment.HorizontalListViewFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.yuyunchao.asus.mynews.HorizontalListView.HorizontalListView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/hlv_someData">
+        </com.yuyunchao.asus.mynews.HorizontalListView.HorizontalListView>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0"
+            android:background="@drawable/typemore_normal"
+            android:layout_width="40dp"
+            android:layout_height="20dp" />
+    </LinearLayout>
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+    <com.yuyunchao.asus.mynews.lib.xListView.XListView
+        android:layout_weight="1"
+        android:id="@+id/xlv_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.yuyunchao.asus.mynews.lib.xListView.XListView>
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+    <LinearLayout
+        android:layout_weight="0"
+        android:background="@color/red"
+        android:id="@+id/ll_title"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:layout_weight="0"
+            android:background="@drawable/ic_title_home_default"
+            android:id="@+id/iv_title_home_default"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/tv_main_title"
+            android:layout_weight="1"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:layout_weight="0"
+            android:background="@drawable/ic_title_share_default"
+            android:id="@+id/iv_title_share_default"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_below="@id/ll_title"
+        android:id="@+id/fl_con"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+</RelativeLayout>

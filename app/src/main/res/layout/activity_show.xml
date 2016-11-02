@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yuyunchao.asus.mynews.activity.ShowActivity">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_show"
+        android:background="@drawable/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:background="@drawable/userbg2"
+            android:id="@+id/iv_yuan1"
+            android:layout_weight="1"
+            android:layout_width="@dimen/user_jpg_dimen"
+            android:layout_height="@dimen/user_jpg_dimen" />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:background="@drawable/userbg"
+            android:id="@+id/iv_yuan2"
+            android:layout_weight="1"
+            android:layout_width="@dimen/user_jpg_dimen"
+            android:layout_height="@dimen/user_jpg_dimen" />
+        <ImageView
+            android:background="@drawable/userbg"
+            android:id="@+id/iv_yuan3"
+            android:layout_weight="1"
+            android:layout_width="@dimen/user_jpg_dimen"
+            android:layout_height="@dimen/user_jpg_dimen" />
+    </LinearLayout>
+
+</FrameLayout>

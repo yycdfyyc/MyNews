@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/bg_slidingmenu_left"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_login_icon"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/biz_pc_main_info_profile_avatar_bg_dark"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/iv_login_icon"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:text="立刻登录"
+        android:onClick="toLoginActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_login" />
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/share_little_bg"
+        android:orientation="horizontal"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:id="@+id/ll_shard"
+        android:layout_marginBottom="80dp"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/fun_share_weixin"
+            android:layout_width="@dimen/share_pic_size"
+            android:layout_height="@dimen/share_pic_size" />
+        <ImageView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/fun_share_friends"
+            android:layout_width="@dimen/share_pic_size"
+            android:layout_height="@dimen/share_pic_size" />
+        <ImageView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/fun_share_weibo"
+            android:layout_width="@dimen/share_pic_size"
+            android:layout_height="@dimen/share_pic_size" />
+        <ImageView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/addimport_qq"
+            android:layout_width="@dimen/share_pic_size"
+            android:layout_height="@dimen/share_pic_size" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_gxbb"
+        android:text="更新版本"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

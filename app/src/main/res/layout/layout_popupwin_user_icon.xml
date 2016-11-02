@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="上传头像"
+        android:textColor="@color/red"
+        android:id="@+id/tv_popup_title"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="从相册中选择"
+        android:id="@+id/btn_from_pic"
+        android:background="@drawable/normalbutton_normal"
+        android:layout_gravity="center_horizontal" />
+    <Button
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="拍照"
+        android:id="@+id/btn_from_cam"
+        android:background="@drawable/normalbutton_normal"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:background="@drawable/normalbutton_normal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="取消"
+        android:id="@+id/btn_cancel"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

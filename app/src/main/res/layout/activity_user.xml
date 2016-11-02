@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_popup"
+    tools:context="com.yuyunchao.asus.mynews.activity.UserActivity">
+    <RelativeLayout
+        android:layout_weight="0"
+        android:background="@color/red"
+        android:id="@+id/ll_user"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/back"
+            android:id="@+id/iv_user_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_user_title"
+            android:text="用户中心"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginEnd="5dp"
+            android:id="@+id/tv_user_exit"
+            android:text="注销"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:background="@drawable/center_top_bg"
+        android:layout_below="@+id/ll_user"
+        android:id="@+id/ll_user_sec"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_weight="0"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/biz_pc_main_info_profile_avatar_bg_dark"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/iv_user_icon" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="用户名"
+                android:id="@+id/tv_user_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="用户积分票数"
+                android:id="@+id/tv_user_jifen"/>
+
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="用户评论数"
+                android:id="@+id/tv_user_comment_count" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_user_sec"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20dp"
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="登录地点"
+                android:id="@+id/tv_user_address" />
+            <TextView
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="登录时间"
+                android:id="@+id/tv_user_time" />
+
+            <TextView
+                android:textSize="20dp"
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="登录方式"
+                android:id="@+id/tv_user_device" />
+        </LinearLayout>
+        <TextView
+            android:background="@color/gray"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv_user_loginLog_data" />
+    </LinearLayout>
+
+</RelativeLayout>

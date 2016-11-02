@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yuyunchao.asus.mynews.activity.CommentActivity">
+    <RelativeLayout
+        android:layout_weight="0"
+        android:background="@color/red"
+        android:id="@+id/ll_comment"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/back"
+            android:id="@+id/iv_comment_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_comment_title"
+            android:text="评论"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <com.yuyunchao.asus.mynews.lib.xListView.XListView
+        android:id="@+id/xlv_comment_data"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.yuyunchao.asus.mynews.lib.xListView.XListView>
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+    <LinearLayout
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_comment"
+            android:textSize="20sp"
+            android:hint="请输入评论"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"/>
+        <ImageView
+            android:layout_margin="8dp"
+            android:id="@+id/iv_send_comment"
+            android:layout_weight="0"
+            android:src="@drawable/timg"
+            android:layout_gravity="bottom"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+    </LinearLayout>
+</LinearLayout>
