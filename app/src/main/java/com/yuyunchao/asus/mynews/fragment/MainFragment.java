@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -34,10 +35,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 主界面fragment
  */
-public class HorizontalListViewFragment extends Fragment implements AdapterView.OnItemClickListener{
+public class MainFragment extends Fragment implements AdapterView.OnItemClickListener,View.OnClickListener{
     MainActivity mainActivity = (MainActivity) getActivity();
+    private int typePosition;
     private int subid = 1;
     //下拉刷新
     private int Refresh = 1;
@@ -59,6 +61,8 @@ public class HorizontalListViewFragment extends Fragment implements AdapterView.
     //XListView的adapter
     XListViewAdapter xListViewAdapter;
     MyDBHelper myDBHelper;
+    private ImageView iv_next_fragment;
+
     //xListView的下拉与上拉监听事件
     private XListView.IXListViewListener xlistener = new XListView.IXListViewListener() {
         @Override
@@ -77,7 +81,7 @@ public class HorizontalListViewFragment extends Fragment implements AdapterView.
         }
     };
 
-    public HorizontalListViewFragment() {
+    public MainFragment() {
         // Required empty public constructor
     }
     @Override
@@ -87,6 +91,8 @@ public class HorizontalListViewFragment extends Fragment implements AdapterView.
         view = inflater.inflate(R.layout.fragment_horizontal_list_view, container, false);
         hlv_data = (HorizontalListView) view.findViewById(R.id.hlv_someData);
         xlv_data = (XListView) view.findViewById(R.id.xlv_data);
+        iv_next_fragment = (ImageView) view.findViewById(R.id.iv_next_fragment);
+        iv_next_fragment.setOnClickListener(this);
         horizontalAdapter = new HorizontalListViewAdapter(getActivity());
         xListViewAdapter = new XListViewAdapter(getActivity(),xlv_data);
         mainActivity = (MainActivity) getActivity();
@@ -95,9 +101,13 @@ public class HorizontalListViewFragment extends Fragment implements AdapterView.
         xlv_data.setXListViewListener(xlistener);
         xlv_data.setOnItemClickListener(this);
         newsListList = new ArrayList<>();
+
+        //横向listView的item点击事件的监听
         hlv_data.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                typePosition = position;
+                changeTitle();
                 horizontalAdapter.setItemPosition(position);
                 if (subid != horizontalAdapter.getMyList().get(position).getSubid()){
                     subid = horizontalAdapter.getMyList().get(position).getSubid();
@@ -258,7 +268,58 @@ public class HorizontalListViewFragment extends Fragment implements AdapterView.
         startActivity(intent);
     }
 
+    /**
+     * 点击事件的监听
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_next_fragment:
+                if (typePosition ==6) {
+                    typePosition = 0;
+                    subid = 1;
+                    horizontalAdapter.setItemPosition(typePosition);
+                    xListViewAdapter.getMyList().clear();
+                    loadNewsListData();
+                }else {
+                    typePosition++;
+                    horizontalAdapter.setItemPosition(typePosition);
+                    subid = horizontalAdapter.getMyList().get(typePosition).getSubid();
+                    xListViewAdapter.getMyList().clear();
+                    loadNewsListData();
+                }
+                horizontalAdapter.notifyDataSetChanged();
+                changeTitle();
+                break;
+        }
+    }
 
+    /**
+     * 改变标题
+     */
+    private void changeTitle(){
+        switch (typePosition) {
+            case 0:
+            case 1:
+                mainActivity.setTitle("新闻");
+                break;
+            case 2:
+            case 3:
+                mainActivity.setTitle("财经");
+                break;
+            case 4:
+                mainActivity.setTitle("科技");
+                break;
+            case 5:
+            case 6:
+                mainActivity.setTitle("体育");
+                break;
+        }
+    }
+    /**
+     * 横向ListView的成功和失败接口的实现类
+     */
     class MyListener implements Response.Listener<String>,Response.ErrorListener{
         @Override
         public void onResponse(String s) {

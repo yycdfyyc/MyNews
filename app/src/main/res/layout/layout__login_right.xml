@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="@drawable/bg_slidingmenu_left"
     android:layout_height="match_parent">
-    <ImageView
+    <com.yuyunchao.asus.mynews.lib.circle_image_view.CircleImageView
         android:id="@+id/iv_login_icon"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"

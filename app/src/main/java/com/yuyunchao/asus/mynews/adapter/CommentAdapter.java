@@ -16,6 +16,7 @@ import com.yuyunchao.asus.mynews.Entry.CommentListEntity;
 import com.yuyunchao.asus.mynews.R;
 import com.yuyunchao.asus.mynews.base.MyBaseAdapter;
 import com.yuyunchao.asus.mynews.biz.MyNewsManager;
+import com.yuyunchao.asus.mynews.lib.circle_image_view.CircleImageView;
 import com.yuyunchao.asus.mynews.lib.xListView.XListView;
 
 import java.io.File;
@@ -174,7 +175,7 @@ public class CommentAdapter extends MyBaseAdapter<CommentListEntity> {
             holder = new ViewHolder();
             holder.tv_content = (TextView)convertView.findViewById(R.id.tv_comment_item_content);
             holder.tv_time = (TextView)convertView.findViewById(R.id.tv_comment_item_time);
-            holder.iv_user = (ImageView) convertView.findViewById(R.id.iv_comment_item_userIcon);
+            holder.iv_user = (CircleImageView) convertView.findViewById(R.id.iv_comment_item_userIcon);
             holder.tv_username = (TextView) convertView.findViewById(R.id.tv_comment_item_user);
             convertView.setTag(holder);
         } else {
@@ -203,6 +204,6 @@ public class CommentAdapter extends MyBaseAdapter<CommentListEntity> {
         public TextView tv_username;
         public TextView tv_content;
         public TextView tv_time;
-        public ImageView iv_user;
+        public CircleImageView iv_user;
     }
 }

@@ -2,7 +2,6 @@ package com.yuyunchao.asus.mynews.fragment;
 
 
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,11 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.yuyunchao.asus.mynews.MyApplication;
 import com.yuyunchao.asus.mynews.R;
-import com.yuyunchao.asus.mynews.biz.MyUserManager;
 import com.yuyunchao.asus.mynews.constant.ServiceConstant;
 import com.yuyunchao.asus.mynews.activity.MainActivity;
 
@@ -211,7 +207,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener,Text
                         mainActivity.tv_login.setText(user);
                         mainActivity.tv_main_title.setText("资讯");
                         mainActivity.slidingMenu.showSecondaryMenu();
-                        mainActivity.replaceFragment(new HorizontalListViewFragment());
+                        mainActivity.replaceFragment(new MainFragment());
                         mainActivity.ll_shard.setVisibility(View.GONE);
                         SharedPreferences preferences = getActivity().getSharedPreferences("mylogin", getActivity().MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

@@ -56,7 +56,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         ArrayList<NewsTypeEntity> lists = new ArrayList<>();
         db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(
-                "select * from "+ DBConstant.DB_TABLE_NAME_NEWS_TYPE,
+                "select * from "+ DBConstant.DB_TABLE_NAME_NEWS_TYPE+" order by subid ASC",
                 null
         );
         int subid_index = cursor.getColumnIndex(DBConstant.DB_TABLE_NEWS_TYPE_COU_SUBID);

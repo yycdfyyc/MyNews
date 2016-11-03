@@ -28,6 +28,7 @@ import com.yuyunchao.asus.mynews.adapter.UserLoginLogAdapter;
 import com.yuyunchao.asus.mynews.base.BaseActivity;
 import com.yuyunchao.asus.mynews.biz.MyUserManager;
 import com.yuyunchao.asus.mynews.constant.ServiceConstant;
+import com.yuyunchao.asus.mynews.lib.circle_image_view.CircleImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,7 +43,8 @@ import java.util.ArrayList;
 
 public class UserActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_user_name,tv_user_exit,tv_user_comment_count,tv_user_jifen;
-    private ImageView iv_user_icon,iv_user_back;
+    private ImageView iv_user_back;
+    private CircleImageView iv_user_icon;
     private ListView lv_user_loginLog_data;
     private Button btn_pp_pic,btn_pp_camare,btn_pp_cancel;
     private MyUserManager manager;
@@ -80,7 +82,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         tv_user_name = (TextView) findViewById(R.id.tv_user_name);
         tv_user_exit = (TextView) findViewById(R.id.tv_user_exit);
         tv_user_jifen = (TextView) findViewById(R.id.tv_user_jifen);
-        iv_user_icon = (ImageView) findViewById(R.id.iv_user_icon);
+        iv_user_icon = (CircleImageView) findViewById(R.id.iv_user_icon);
         iv_user_back = (ImageView) findViewById(R.id.iv_user_back);
         lv_user_loginLog_data = (ListView) findViewById(R.id.lv_user_loginLog_data);
         adapter = new UserLoginLogAdapter(this);

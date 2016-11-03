@@ -195,7 +195,7 @@ public class RegisterFragment extends Fragment implements TextWatcher{
                     String explain = object.getString("explain");
                     MainActivity mainActivity = ((MainActivity)getActivity());
                     if (result == 0){
-                        mainActivity.replaceFragment(new HorizontalListViewFragment());
+                        mainActivity.replaceFragment(new MainFragment());
                         mainActivity.setTitle("资讯");
                     }else {
                         et_email.setText("");

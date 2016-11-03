@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyNews</string>
-    <string name="title">资讯</string>
-    <string name="test_text">资讯</string>
+    <string name="title">新闻</string>
+    <string name="test_text">新闻</string>
 
     <string name="item_list_title">标题</string>
     <string name="item_list_simple_content">简略内容</string>

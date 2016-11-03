@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.yuyunchao.asus.mynews.fragment.HorizontalListViewFragment">
+    tools:context=".fragment.MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -18,10 +18,11 @@
             android:id="@+id/hlv_someData">
         </com.yuyunchao.asus.mynews.HorizontalListView.HorizontalListView>
         <ImageView
+            android:id="@+id/iv_next_fragment"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_weight="0"
-            android:background="@drawable/typemore_normal"
+            android:background="@drawable/next_fragment"
             android:layout_width="40dp"
             android:layout_height="20dp" />
     </LinearLayout>

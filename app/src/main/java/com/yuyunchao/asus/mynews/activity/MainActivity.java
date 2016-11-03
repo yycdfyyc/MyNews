@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,15 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.yuyunchao.asus.mynews.MyApplication;
 import com.yuyunchao.asus.mynews.R;
 import com.yuyunchao.asus.mynews.base.BaseActivity;
 import com.yuyunchao.asus.mynews.biz.MyUserManager;
-import com.yuyunchao.asus.mynews.fragment.HorizontalListViewFragment;
+import com.yuyunchao.asus.mynews.fragment.AllPicFragment;
+import com.yuyunchao.asus.mynews.fragment.MainFragment;
 import com.yuyunchao.asus.mynews.fragment.LoginFragment;
 import com.yuyunchao.asus.mynews.fragment.MyCollectionFragment;
+import com.yuyunchao.asus.mynews.lib.circle_image_view.CircleImageView;
 import com.yuyunchao.asus.mynews.lib.slidingmenu.SlidingMenu;
 
 
@@ -35,8 +33,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public LinearLayout ll_shard;
     public SlidingMenu slidingMenu;
     public TextView tv_login,tv_main_title;
-    public ImageView iv_user_icon,iv_main_right,iv_main_lift;
-    public String user;
+    public ImageView iv_main_right,iv_main_lift;
+    public CircleImageView iv_user_icon;
     public boolean isLogin;
     @Override
     protected int setContent() {
@@ -46,10 +44,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initUI() {
         //加载SlidingMenu
-        replaceFragment(new HorizontalListViewFragment());
+        replaceFragment(new MainFragment());
         initSlidingMenu();
         tv_login = (TextView) slidingMenu.findViewById(R.id.tv_login);
-        iv_user_icon = (ImageView) slidingMenu.findViewById(R.id.iv_login_icon);
+        iv_user_icon = (CircleImageView) slidingMenu.findViewById(R.id.iv_login_icon);
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         iv_main_lift = (ImageView) findViewById(R.id.iv_title_home_default);
         iv_main_right = (ImageView) findViewById(R.id.iv_title_share_default);
@@ -116,7 +114,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         setTitle("登录");
                         slidingMenu.showContent();
                     }
-
                 }
                 break;
             //点击 activity左边图片
@@ -137,10 +134,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.ll_news:
                 setbgColor(0);
-                if (!tv_main_title.getText().equals("资讯")){
-                    setTitle("资讯");
-                    replaceFragment(new HorizontalListViewFragment());
+                switch (tv_main_title.getText().toString()){
+                    case "新闻":
+                    case "财经":
+                    case "科技":
+                    case "体育":
+                        break;
+                    default:
+                        setTitle("新闻");
+                        replaceFragment(new MainFragment());
+                        break;
                 }
+
                 setGoneSlidingMenu();
                 break;
             case R.id.ll_local:
@@ -149,8 +154,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.ll_read:
                 setbgColor(2);
-                setTitle("收藏");
-                replaceFragment(new MyCollectionFragment());
+                if (!tv_main_title.getText().equals("收藏")) {
+                    setTitle("收藏");
+                    replaceFragment(new MyCollectionFragment());
+                }
                 setGoneSlidingMenu();
                 break;
             case R.id.ll_ties:
@@ -159,6 +166,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.ll_pics:
                 setbgColor(4);
+                if (!tv_main_title.getText().equals("图片")) {
+                    setTitle("图片");
+                    replaceFragment(new AllPicFragment());
+                }
                 setGoneSlidingMenu();
                 break;
 
@@ -199,15 +210,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
             switch (tv_main_title.getText().toString()){
                 case "登录":
-                    tv_main_title.setText("资讯");
-                    replaceFragment(new HorizontalListViewFragment());
+                    tv_main_title.setText("新闻");
+                    replaceFragment(new MainFragment());
                     break;
                 case "注册":
                     tv_main_title.setText("登录");
                     replaceFragment(new LoginFragment());
                     break;
+                case "财经":
+                case "科技":
+                case "体育":
                 case "收藏":
-                case "资讯":
+                case "新闻":
                     doubleClickExit(keyCode,event);
                     break;
             }
