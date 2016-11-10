@@ -93,7 +93,17 @@ public class NewsWebViewActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_web_back:
-                finish();
+                if (pp != null && pp.isShowing()) {
+                    pp.dismiss();
+                    Log.i("yyc", "back pp");
+                } else {
+                    if (updata != null){
+                        Log.i("yyc", "updata");
+                        updata.updataAdapter(true);
+                    }
+                    Log.i("yyc", "back activity");
+                    finish();
+                }
                 break;
             case R.id.iv_web_news_menu:
                 Log.i("yyc", "menu");
@@ -222,7 +232,6 @@ public class NewsWebViewActivity extends BaseActivity implements View.OnClickLis
                 Log.i("yyc", "back activity");
                 finish();
             }
-
         }
         return true;
     }

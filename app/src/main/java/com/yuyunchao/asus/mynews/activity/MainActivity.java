@@ -13,15 +13,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.yuyunchao.asus.mynews.R;
 import com.yuyunchao.asus.mynews.base.BaseActivity;
 import com.yuyunchao.asus.mynews.biz.MyUserManager;
+import com.yuyunchao.asus.mynews.constant.ServiceConstant;
 import com.yuyunchao.asus.mynews.fragment.AllPicFragment;
 import com.yuyunchao.asus.mynews.fragment.MainFragment;
 import com.yuyunchao.asus.mynews.fragment.LoginFragment;
 import com.yuyunchao.asus.mynews.fragment.MyCollectionFragment;
 import com.yuyunchao.asus.mynews.lib.circle_image_view.CircleImageView;
 import com.yuyunchao.asus.mynews.lib.slidingmenu.SlidingMenu;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -36,6 +46,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public ImageView iv_main_right,iv_main_lift;
     public CircleImageView iv_user_icon;
     public boolean isLogin;
+    private  MyUserManager myUserManager;
+    private String uid;
     @Override
     protected int setContent() {
         return R.layout.activity_main;
@@ -217,6 +229,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     tv_main_title.setText("登录");
                     replaceFragment(new LoginFragment());
                     break;
+                case "图片":
                 case "财经":
                 case "科技":
                 case "体育":
@@ -262,15 +275,28 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 自动登录
      */
-    private void autoLogin(){
-        MyUserManager myUserManager = new MyUserManager(this);
+    public void autoLogin(){
+        myUserManager = new MyUserManager(this);
         SharedPreferences p = getSharedPreferences("mylogin",MODE_PRIVATE);
         isLogin = p.getBoolean("login",false);
+        uid = p.getString("user_name", "");
         if (isLogin){
             String s = p.getString("user_name","");
             Bitmap bitmap = myUserManager.getHeadBitMap(s + ".jpg");
-            if (bitmap != null)
-            iv_user_icon.setImageBitmap(bitmap);
+            if (bitmap != null){
+                iv_user_icon.setImageBitmap(bitmap);
+            }else {
+                String token = p.getString("user_token", "");
+                myUserManager.MyUserStringRequest(ServiceConstant.SERVICE_NAME +
+                        "user_home?ver=1&imei=111111111111&token=" + token, listener, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                    }
+                });
+            }
+
+
             tv_login.setText(s);
             ll_shard.setVisibility(View.GONE);
         }else {
@@ -279,6 +305,46 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             ll_shard.setVisibility(View.VISIBLE);
         }
     }
+    private Response.Listener<String> listener = new Response.Listener<String>() {
+        @Override
+        public void onResponse(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                JSONObject object = jsonObject.getJSONObject("data");
+                String url = object.getString("portrait");
+                myUserManager.MyUserBitmapRequest(url, bitmapListener, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                    }
+                });
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    private Response.Listener<Bitmap> bitmapListener = new Response.Listener<Bitmap>() {
+        @Override
+        public void onResponse(Bitmap bitmap) {
+            if (bitmap!=null)
+            iv_user_icon.setImageBitmap(bitmap);
+            //存放到缓存文件中
+            File file = new File(getCacheDir(),"userImage");
+            if (!file.exists()){
+                file.mkdirs();
+            }
+//            String userIconName = user_icon.substring(user_icon.lastIndexOf("/") + 1);
+            String userIconName = uid + ".jpg";
+            File icon = new File(file, userIconName);
+            try {
+                OutputStream outputStream = new FileOutputStream(icon);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                outputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
     /**
      * 设置左边布局的背景颜色

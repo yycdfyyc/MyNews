@@ -57,9 +57,11 @@ public class AllPicFragment extends Fragment {
         rv_main.addItemDecoration(decoration);
         //设置adapter
         initList(getActivity().getCacheDir());
+        //得到屏幕宽度
         DisplayMetrics dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         int mScreenWidth = dm.widthPixels;
+
         adapter = new MyRecycleAdapter(getActivity(), list,mScreenWidth);
         rv_main.setAdapter(adapter);
     }
@@ -79,6 +81,7 @@ public class AllPicFragment extends Fragment {
             }
         }
     }
+
     class SpacesItemDecoration extends RecyclerView.ItemDecoration {
 
         private int space;

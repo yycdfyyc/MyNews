@@ -222,12 +222,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener,Text
                         application.userName = user;
                         application.token = token;
                         application.userPwd = pwd;
+                        mainActivity.autoLogin();
                     } else {
                         ((MainActivity) getActivity()).showToast(message);
                         et_user.setText("");
                         et_pwd.setText("");
                     }
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

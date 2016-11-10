@@ -1,6 +1,5 @@
 package com.yuyunchao.asus.mynews.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ public class ShowActivity extends BaseActivity {
     ViewPager vp_show;
     View[] view = new View[3];
     ImageView iv_pager1,iv_pager2,iv_pager3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

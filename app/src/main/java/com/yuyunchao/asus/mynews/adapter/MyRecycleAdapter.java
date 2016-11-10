@@ -56,14 +56,12 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.MyVi
     public int getItemCount() {
         return list.size();
     }
+
     class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView iv_img;
         public MyViewHolder(View itemView) {
             super(itemView);
             iv_img = (ImageView) itemView.findViewById(R.id.iv_item_recycle);
-        }
-        public ImageView getIv_img() {
-            return iv_img;
         }
     }
 }
